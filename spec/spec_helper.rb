@@ -1,5 +1,9 @@
 require "bundler/setup"
 require "active_record/bsearch"
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
+
+Time.zone = "Tokyo"
+ActiveRecord::Base.default_timezone = :local
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
