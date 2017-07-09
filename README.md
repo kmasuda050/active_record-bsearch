@@ -1,8 +1,6 @@
 # ActiveRecord::Bsearch
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/active_record/bsearch`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Binary search created_at with primary key.
 
 ## Installation
 
@@ -22,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add ActiveRecord::Bsearch to your class.
+
+```
+class Post < ActiveRecord::Base
+  include ActiveRecord::Bsearch
+end
+
+```
+
+```
+Post.create(created_at: Time.zone.parse('2017-07-07 00:00:00'))
+# => #<Post id: 1, created_at: "2017-07-07 00:00:00", updated_at: "2017-07-09 15:46:33">
+Post.bsearch( Time.zone.parse('2017-07-07 00:00:00'))
+# => 1
+Post.bsearch( Time.zone.parse('2017-07-08 00:00:00'))
+# => nil
+```
 
 ## Development
 
@@ -32,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/active_record-bsearch. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kmasuda050/active_record-bsearch. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +54,4 @@ The gem is available as open source under the terms of the [MIT License](http://
 
 ## Code of Conduct
 
-Everyone interacting in the ActiveRecord::Bsearch project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/active_record-bsearch/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ActiveRecord::Bsearch project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/kmasuda050/active_record-bsearch/blob/master/CODE_OF_CONDUCT.md).
